@@ -4,16 +4,19 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 <header class="navbar">
 
+<div class="nav-container">
+
 <div class="logo">
 CODENAME BENTO
 <span>Authorised Channel Partner</span>
 </div>
 
-<div class="hamburger">
+<div class="hamburger" id="menuBtn">
 ☰
 </div>
 
-<nav class="nav-links">
+<nav class="nav-links" id="navMenu">
+
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#price">Price</a>
@@ -22,15 +25,20 @@ CODENAME BENTO
 <a href="#floor">Floor Plan</a>
 <a href="#gallery">Gallery</a>
 <a href="#location">Location</a>
+
+<a href="tel:+918929008045" class="call-btn">
+📞 Call Now
+</a>
+
 </nav>
 
-<button class="call-btn">
-📞 Call Now
-</button>
+</div>
 
 </header>
 
 
+
+<!-- HERO -->
 
 <section id="home" class="hero">
 
@@ -62,6 +70,8 @@ Starting Price ₹ 85 Lac*
 
 
 
+<!-- ABOUT -->
+
 <section id="about" class="about">
 
 <div class="about-wrapper">
@@ -91,6 +101,8 @@ Located inside the rapidly growing Gaur Yamuna City township.
 
 
 
+<!-- PRICE -->
+
 <section id="price" class="price-section">
 
 <h2>Price List</h2>
@@ -119,6 +131,8 @@ Enquire Now
 
 
 
+<!-- HIGHLIGHTS -->
+
 <section id="highlights" class="highlights">
 
 <div class="highlights-wrapper">
@@ -141,6 +155,8 @@ Enquire Now
 </section>
 
 
+
+<!-- AMENITIES -->
 
 <section id="amenities" class="amenities">
 
@@ -168,6 +184,8 @@ Enquire Now
 </section>
 
 
+
+<!-- FLOOR PLAN -->
 
 <section id="floor" class="floor-plan">
 
@@ -199,6 +217,8 @@ Studio – 650 – 675 Sqft
 
 
 
+<!-- GALLERY -->
+
 <section id="gallery" class="gallery">
 
 <h2 class="gallery-title">Gallery</h2>
@@ -214,6 +234,8 @@ Studio – 650 – 675 Sqft
 </section>
 
 
+
+<!-- LOCATION -->
 
 <section id="location" class="location-section">
 
@@ -246,6 +268,8 @@ View Location
 
 
 
+<!-- DEVELOPER + FORM -->
+
 <section class="developer-section">
 
 <div class="developer-container">
@@ -255,7 +279,7 @@ View Location
 <h2>About Developer</h2>
 
 <p>
-Over 31 years of real estate experience delivering quality residential and commercial developments.
+Over 10 years of real estate experience delivering quality residential and commercial devlopments 
 </p>
 
 <p>📞 +91 95409 32700</p>
@@ -302,18 +326,28 @@ GET DETAILS
 
 
 
-/* MOBILE NAVIGATION */
+/* NAVBAR MOBILE TOGGLE */
 
-const hamburger = document.querySelector(".hamburger")
-const nav = document.querySelector(".nav-links")
+const menuBtn = document.getElementById("menuBtn")
+const navMenu = document.getElementById("navMenu")
 
-hamburger?.addEventListener("click",()=>{
-nav?.classList.toggle("show-nav")
+menuBtn?.addEventListener("click",()=>{
+navMenu?.classList.toggle("show")
 })
 
 
 
-/* FORM MAIL */
+/* CLOSE MENU AFTER CLICK */
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+link.addEventListener("click",()=>{
+navMenu?.classList.remove("show")
+})
+})
+
+
+
+/* FORM EMAIL */
 
 document.addEventListener("submit",(e)=>{
 
